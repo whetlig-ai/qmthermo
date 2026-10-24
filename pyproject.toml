@@ -1,12 +1,13 @@
 [project]
 name = "qmthermo"
-version = "0.1.0"
+dynamic = ["version"]
 authors = [
     { name="Moshchenkov Andrei", email="whetlig@gmail.com"}
 ]
 description = "Python package to calculate thermochemistry"
 readme = "README.md"
 requires-python = ">=3.11"
+dependencies = ["numpy"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
@@ -21,4 +22,10 @@ Issues = "https://github.com/whetlig-ai/qmthermo/issues"
 [build-system]
 requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/qmthermo/__init__.py"
+
+[project.optional-dependencies]
+dev = ["pytest"]
 

@@ -1,5 +1,5 @@
-.venv
+.venv/
 __pycache__/
 *.pyc
 *.egg-info/
-*.pytest_cache/
+pytest.pytest_cache/
