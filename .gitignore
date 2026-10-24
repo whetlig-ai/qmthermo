@@ -2,4 +2,4 @@
 __pycache__/
 *.pyc
 *.egg-info/
-pytest.pytest_cache/
+.pytest_cache/
