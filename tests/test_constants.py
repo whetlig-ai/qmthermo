@@ -1,5 +1,3 @@
-from math import pi
-
 import pytest
 
 from qmthermo import constants
