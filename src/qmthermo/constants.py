@@ -15,7 +15,7 @@ R = kb * Na # J mol^-1 K^-1
 c = 299792458.0 # m s^-1
 # Atomic mass unit
 amu_in_kg = 1.66053906892e-27 # kg
-#Atmospehric pressure
+#Atmospheric pressure
 atm_to_Pa = 101325.0 # Pa
 # Conversion
 kcal_to_J = 4184.0
