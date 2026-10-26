@@ -1,4 +1,4 @@
-from math import e, log, pi
+from math import e, log, pi, sqrt
 
 from qmthermo import constants
 from qmthermo.thermo.result import Contribution
@@ -10,7 +10,7 @@ def translation(mass_amu: float, T: float, P_atm: float = 1.0) -> Contribution:
     Parameters:
     -----------
     mass_amu : float
-        Molecular mass im amu
+        Molecular mass in amu
         
     T : float
         Temperature in K
@@ -20,20 +20,22 @@ def translation(mass_amu: float, T: float, P_atm: float = 1.0) -> Contribution:
 
     Returns:
     --------
-    Contribution(H = ..., S = ..., Cv = ...)
+    Contribution(
+    H = ... in J/mol, 
+    S = ... in J/(mol K) ,
+    Cv = ... in J/(mol K))
 
     References
     ----------
     D. A. McQuarrie, Statistical Mechanics (2000), ch. 5.
     """
     m = mass_amu * constants.amu_in_kg
-    l = ((2 * pi * m * constants.kb * T) / constants.h ** 2) ** (1/2)
-    # #Helmholtz free energy
-    # A_trans = -constants.R * T * log(q_trans)
+    Lambda = constants.h / sqrt(2 * pi * m * constants.kb * T)
+    q = constants.kb * T / (P_atm * constants.atm_to_Pa * Lambda ** 3 )
     # Inner energy
     E_trans = 3/2 * constants.R * T
     # Entropy
-    S_trans = constants.R * log(l ** 3 * constants.R * T * e ** (5/2) / (constants.Na * P_atm * constants.atm_to_Pa))
+    S_trans = constants.R * (log(q) + 5 / 2)
     # Enthalpy
     H_trans = E_trans + constants.R * T
     # Heat capacity
