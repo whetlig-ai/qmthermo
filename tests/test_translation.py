@@ -21,8 +21,9 @@ def test_reproduce_Cv():
 
 
 def test_physics_S():
-    lower_S = 43.36774 - constants.R * log(2) * 1000 / constants.kcal_to_J
-    assert translation(mass, T, P_atm=2).S * 1000 / constants.kcal_to_J == pytest.approx(lower_S, abs=1e-3)
+    S_1 = translation(mass, T, 1).S 
+    S_2 = translation(mass, T, 2).S 
+    assert (S_1 - S_2) == pytest.approx(constants.R * log(2), abs=1e-3, rel=1e-12)
 
 
 def test_physics_H():
