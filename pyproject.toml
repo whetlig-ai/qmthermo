@@ -27,5 +27,5 @@ build-backend = "hatchling.build"
 path = "src/qmthermo/__init__.py"
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "ruff"]
 

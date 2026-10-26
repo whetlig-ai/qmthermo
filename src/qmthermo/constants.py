@@ -1,3 +1,8 @@
+"""Physical constants and unit conversions (CODATA 2022).
+All units are SI values unless otherwise stated.
+e.g. ``kcal_to_J`` or ``Eh_to_kcal_mol``.
+"""
+
 from math import pi
 
 # From CODATA 2022

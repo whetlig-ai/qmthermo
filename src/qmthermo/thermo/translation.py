@@ -1,4 +1,8 @@
-from math import e, log, pi, sqrt
+"""Translational contributions to 
+Enthalpy, Entropy and Heat capcaity of theideal gas
+"""
+
+from math import log, pi, sqrt
 
 from qmthermo import constants
 from qmthermo.thermo.result import Contribution
