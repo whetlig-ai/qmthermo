@@ -20,11 +20,11 @@ def test_tiobu4_principal_moments():
 
 masses_H = np.array((1.007825032, 1.007825032))
 coords_H = np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 0.74]])
-mu = masses_H / 2
+mu = masses_H[0] * masses_H[1] / (np.sum(masses_H))
 expected = mu * 0.74**2
 
 
 def test_H2_moments():
     assert sorted(
         inertia.principal_moments(masses_H, coords_H), reverse=True
-    ) == pytest.approx((*expected, 0.0), abs=1e-5)
+    ) == pytest.approx((expected, expected, 0.0), abs=1e-5)
