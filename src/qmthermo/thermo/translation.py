@@ -11,7 +11,7 @@ from qmthermo.thermo.result import Contribution
 def translation(mass_amu: float, T: float, P_atm: float = 1.0) -> Contribution:
     """Translational contributions to enthalpy, entropy and heat capacity
 
-    Parameters:
+    Parameters
     -----------
     mass_amu : float
         Molecular mass in amu
@@ -22,7 +22,7 @@ def translation(mass_amu: float, T: float, P_atm: float = 1.0) -> Contribution:
     P_atm : float
         Pressure in atm, 1.0 atm by default
 
-    Returns:
+    Returns
     --------
     Contribution(
     H = ... in J/mol,

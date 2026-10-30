@@ -4,9 +4,9 @@ import numpy as np
 
 
 def principal_moments(masses_amu: np.ndarray, coords_A: np.ndarray) -> np.ndarray:
-    """Principal moments of inertia (Ixx, Iyy, Izz).
+    """Principal moments of inertia I_A <= I_B <= I_C.
 
-    Parameters:
+    Parameters
     -----------
     masses_amu : np.ndarray(N)
         Atomic masses in amu, N is the number of atoms
@@ -14,10 +14,10 @@ def principal_moments(masses_amu: np.ndarray, coords_A: np.ndarray) -> np.ndarra
     coords_A : np.ndarray(N, 3)
         Cartesian coordinates of the molecule in A
 
-    Returns:
+    Returns
     ----------
-    np.ndarray(Ixx, Iyy, Izz)
-        Principal moments of inertia (from smallest to largest) im amu A^2
+    np.ndarray(I_A, I_B, I_C)
+        Principal moments of inertia (from smallest to largest) in amu A^2
 
     References
     ----------
@@ -30,6 +30,6 @@ def principal_moments(masses_amu: np.ndarray, coords_A: np.ndarray) -> np.ndarra
     )
     sum_m_r_2 = np.trace(mk_ri_rj) * np.eye(3)
     I = sum_m_r_2 - mk_ri_rj
-    IA_IB_IC = np.linalg.eigvalsh(I)
+    I_A_I_B_I_C = np.linalg.eigvalsh(I)
 
-    return IA_IB_IC
+    return I_A_I_B_I_C
